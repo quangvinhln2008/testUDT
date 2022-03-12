@@ -1,0 +1,150 @@
+@startuml E-commercial
+   entity Role{
+      * _id: ObjectId
+      --
+      *roleName: enum("admin","user")
+   }
+
+   entity User{
+      * _id: ObjectId
+      --
+      *userName: String
+      --
+      * userRole: ObjecId
+   }
+   
+   entity Category{
+      *_id: ObjectId
+      --
+      *categoryName: String
+   }
+
+   entity Product {
+      * _id: ObjectId
+      --
+      * productName : String
+      * productPrice: Number
+      * productUnit: String
+      --
+      * categoryId: ObjectId
+   }
+
+   entity Customer{
+      * _id: ObjectId
+      --
+      * customerName: String
+      * customerEmail: String
+      customerAddress: String
+      customerPhone: String
+      customerGender: enum("MALE", "FEMALE")
+   }
+   
+   entity Agency{
+      * _id: ObjectId
+      --
+      * agencyName: String
+      * agencyEmail: String
+      agencyAddress: String
+      agencyPhone: String
+      agencyGender: enum("MALE", "FEMALE")
+   }
+   
+   entity Cart {
+      * _id: ObjectId
+      --
+      ' Default False
+      * isPay: Boolean 
+      --
+      'ref Customer
+      * belongTo: ObjectId
+   }
+
+   entity CartDetail{
+      'ref Cart
+      * cartId: ObjectId
+      'ref Product
+      * haveProduct: ObjecId
+      --
+      * quantities : Number
+      * unitPrice: Number
+      * Amount: Number
+   }
+
+   entity CustomerBilling{
+      * _id: ObjectId
+      --
+      * DateBilling: Date
+      * billingStatus: enum("Completed","Pending","Confirmed")
+      * paymentStatus:enum("Completed","Pending","Confirmed")
+      * shippingStatus: enum("Delivered","Canceled","Failed Delivered", "Return")
+      --
+      'ref Customer
+      * belongTo: ObjectId
+   }
+
+   entity CustomerBillingDetail{
+      'ref Cart
+      * billingId: ObjectId
+      'ref Product
+      * haveProduct: ObjecId
+      --
+      * quantities : Number
+      * unitPrice: Number
+      * Amount: Number
+   }
+
+   entity AgencyBilling{
+      * _id: ObjectId
+      * dateBilling: Date
+      * billingStatus: enum("Completed","Pending","Confirmed")
+      * paymentStatus:enum("Completed","Pending","Confirmed")
+
+      --
+      * agencyId: ObjectId
+   }
+
+   entity AgencyBillingDetail{
+      'ref AgencyBilling
+      * billingId: ObjectId
+      'ref Product
+      * haveProduct: ObjecId
+      --
+      * quantities : Number
+      * unitPrice: Number
+      * Amount: Number
+   }
+
+   'one user have one role
+   Role |o--o| User
+   
+   'one product belong to one category
+   'one category have many product
+   Category }|--|| Product
+
+   'one cart belong to one customer
+   'one customer have many cart
+   Customer }|--|| Cart
+
+   'one product have bought many cart
+   'one cart have many product in cart
+   Product }|--|{ CartDetail
+   Cart }|--|{ CartDetail
+
+    'one billing belong to one customer
+   'one customer have many cart
+   Customer }|--|| CustomerBilling
+
+   'one product have in many billing
+   'one billing have many product
+   Product }|--|{ CustomerBillingDetail
+   CustomerBilling }|--|{ CustomerBillingDetail
+
+   'one cart belong to one customer
+   'one customer have many cart
+   Agency }|--|| AgencyBilling
+
+   'one product have bought many billing of agency
+   'one agency billing have many product
+   Product }|--|{ AgencyBillingDetail
+   AgencyBilling }|--|{ AgencyBillingDetail
+@enduml
