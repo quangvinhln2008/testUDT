@@ -94,7 +94,8 @@ from system design, implementation to deploy production.
           - Can read/create/update/delete agency.
 
     SECTION II:
-      1. With UML you have already designed on question 1, what database are you using to implement?      2. Why are you using that? What is the strong and weak point of it?
+      1. With UML you have already designed on question 1, what database are you using to implement?      
+      2. Why are you using that? What is the strong and weak point of it?
       3. Write docker-compose.yml to start the database locally.
       4. Setup Loopback 4
       5. Using UML on question 1, set up API for these features.
