@@ -9,6 +9,8 @@
       * _id: ObjectId
       --
       *userName: String
+      *userEmail: String
+      *userPassword: String
       --
       * userRole: ObjecId
    }
