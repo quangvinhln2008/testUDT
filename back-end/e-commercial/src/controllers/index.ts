@@ -10,3 +10,7 @@ export * from './customer-cart.controller';
 export * from './cart-product.controller';
 export * from './cart-detail.controller';
 export * from './cart.controller';
+export * from './customer-customerbilling.controller';
+export * from './customer-billing.controller';
+export * from './customerbilling-product.controller';
+export * from './customer-billing-detail.controller';

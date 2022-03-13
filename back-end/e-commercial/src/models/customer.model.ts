@@ -1,5 +1,6 @@
 import {Entity, model, property, hasMany} from '@loopback/repository';
 import {Cart} from './cart.model';
+import {Customerbilling} from './customerbilling.model';
 
 @model()
 export class Customer extends Entity {
@@ -48,6 +49,9 @@ export class Customer extends Entity {
 
   @hasMany(() => Cart, {keyTo: 'belongTo'})
   carts: Cart[];
+
+  @hasMany(() => Customerbilling, {keyTo: 'belongTo'})
+  customerbillings: Customerbilling[];
 
   constructor(data?: Partial<Customer>) {
     super(data);
