@@ -1,17 +1,17 @@
 [
     {
       "name": "Container renter A",
-      "container": "1",
-      "totalCost": "1"
+      "container": "5",
+      "totalCost": "5"
     },
     {
         "name": "Container renter B",
         "container": "2",
-        "totalCost": "1"
+        "totalCost": "10"
     },
     {
         "name": "Container renter C",
-        "container": "3",
+        "container": "10",
         "totalCost": "3"
     }
   ]
