@@ -14,3 +14,8 @@ export * from './customer-customerbilling.controller';
 export * from './customer-billing.controller';
 export * from './customerbilling-product.controller';
 export * from './customer-billing-detail.controller';
+export * from './agency.controller';
+export * from './agency-agenybilling.controller';
+export * from './agency-billing.controller';
+export * from './agenybilling-product.controller';
+export * from './agency-billing-detail.controller';

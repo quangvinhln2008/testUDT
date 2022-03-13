@@ -1,7 +1,7 @@
 import {Entity, model, property} from '@loopback/repository';
 
 @model()
-export class Customerbillingdetail extends Entity {
+export class Agencybillingdetail extends Entity {
   @property({
     type: 'string',
     id: true,
@@ -29,22 +29,21 @@ export class Customerbillingdetail extends Entity {
 
   @property({
     type: 'string',
-    mongodb:{dataType:'ObjectId'}
   })
-  customerbillingId?: string;
+  agenybillingId?: string;
 
   @property({
     type: 'string',
   })
   productId?: string;
 
-  constructor(data?: Partial<Customerbillingdetail>) {
+  constructor(data?: Partial<Agencybillingdetail>) {
     super(data);
   }
 }
 
-export interface CustomerbillingdetailRelations {
+export interface AgencybillingdetailRelations {
   // describe navigational properties here
 }
 
-export type CustomerbillingdetailWithRelations = Customerbillingdetail & CustomerbillingdetailRelations;
+export type AgencybillingdetailWithRelations = Agencybillingdetail & AgencybillingdetailRelations;

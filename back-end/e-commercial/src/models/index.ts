@@ -7,3 +7,6 @@ export * from './cart.model';
 export * from './cartdetail.model';
 export * from './customerbilling.model';
 export * from './customerbillingdetail.model';
+export * from './agency.model';
+export * from './agenybilling.model';
+export * from './agencybillingdetail.model';

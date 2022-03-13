@@ -7,3 +7,6 @@ export * from './cart.repository';
 export * from './cartdetail.repository';
 export * from './customerbilling.repository';
 export * from './customerbillingdetail.repository';
+export * from './agency.repository';
+export * from './agenybilling.repository';
+export * from './agencybillingdetail.repository';
