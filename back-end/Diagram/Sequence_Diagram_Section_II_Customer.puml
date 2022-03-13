@@ -1,0 +1,27 @@
+@startuml
+
+skinparam maxmessagesize 150
+
+Actor Customer
+participant System
+participant Account
+
+Customer -> System : Input user name, password
+
+activate System
+System -> System: Check validation user name, password
+System -> Account: Send the user name, password
+deactivate System
+
+activate Account
+Account-> Account: Verify user name in database
+Account-> System: Return infomation login
+deactivate Account
+
+activate System
+System -> System: Create JWT string with secret, and save session login of customer
+deactivate System
+
+System -> Customer: Return token data with JWT, /n and return Conten base on Authorities
+
+@enduml

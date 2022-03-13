@@ -1,0 +1,21 @@
+@startuml
+
+skinparam maxmessagesize 150
+
+Actor Agency
+participant System
+participant Billing
+
+Agency -> System  : Request read/create/update/delete with Billing id
+
+System -> Billing: Send Billing id to Billing data
+
+activate Billing
+Billing -> Billing: Check Billing have belong to agency
+deactivate Billing
+
+Billing-> System: Send infomation of Billing id
+
+System -> Agency: Return to info of Billing id
+
+@enduml

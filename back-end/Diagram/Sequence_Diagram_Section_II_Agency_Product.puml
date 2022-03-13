@@ -1,0 +1,21 @@
+@startuml
+
+skinparam maxmessagesize 150
+
+Actor Agency
+participant System
+participant Product
+
+Agency -> System  : Request read/create/update/delete with product id
+
+System -> Product: Send product id to Product data
+
+activate Product
+Product -> Product: Check product have belong to agency
+deactivate Product
+
+Product-> System: Send infomation of product id
+
+System -> Agency: Return to info of product id
+
+@enduml

@@ -1,0 +1,29 @@
+@startuml
+
+skinparam maxmessagesize 150
+
+Actor Admin
+participant System
+participant Billing
+participant Customer
+
+Admin -> System : Request billing id, transaction id
+
+System -> Billing: Send billing id to Billing data
+
+activate Billing
+Billing -> Billing: check billing id belong to who
+
+deactivate Billing
+
+Billing -> Customer: Send Customer id  to Customer data
+
+activate Customer
+Customer -> Customer: Retrived information of customer id
+deactivate Customer
+
+Customer -> System: Infomation of customer
+
+System -> Admin: Infomation customer of billing id
+
+@enduml

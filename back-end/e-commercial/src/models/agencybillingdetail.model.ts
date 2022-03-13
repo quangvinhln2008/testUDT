@@ -29,6 +29,7 @@ export class Agencybillingdetail extends Entity {
 
   @property({
     type: 'string',
+    mongodb:{dataType:'ObjectId'}
   })
   agenybillingId?: string;
 
